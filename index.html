@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    
+    <title>Gradious Code Evaluator</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/main.css">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Page Content -->
+   </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+         
+          <h4>Exercise 1</h4>
+          <p>Define a function called <code>sum</code> that takes two integers as arguments and returns their sum.</p>
+          <form>
+           <div class="form-group">
+              <div id="editor" class="ace-editor"># Enter your code here.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Run Code</button>
+          </form>
+        
+        </div> 
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <small class="text-muted">
+          <span>© Copyright 2022 <a href="">Gradious</a></span>
+        </small>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./main.js"></script>
+    <script src="./renderer.js"></script>
+    <script src="./assets/js/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/javascript");
+</script>
+  </body>
+</html>
