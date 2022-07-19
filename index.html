@@ -24,7 +24,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-         
+          <div id="buttonDiv"></div> 
           <h4>Exercise 1</h4>
           <p>Define a function called <code>sum</code> that takes two integers as arguments and returns their sum.</p>
           <form>
@@ -50,8 +50,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="./main.js"></script>
     <script src="./renderer.js"></script>
+    <script src="jwt-decode.js"></script>
     <script src="./assets/js/ace.js" type="text/javascript" charset="utf-8"></script>
-  <script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+      
+      function handleCredentialResponse(response) {
+        console.log("Encoded JWT ID token: " + response.credential);
+        const responsePayload = jwt_decode(response.credential);
+
+console.log("ID: " + responsePayload.sub);
+console.log('Full Name: ' + responsePayload.name);
+console.log('Given Name: ' + responsePayload.given_name);
+console.log('Family Name: ' + responsePayload.family_name);
+console.log("Image URL: " + responsePayload.picture);
+console.log("Email: " + responsePayload.email);
+      }
+      window.onload = function () {
+        google.accounts.id.initialize({
+          client_id: "197504797372-j73fmcvfadrrqokndu07vat9eobuh6sj.apps.googleusercontent.com",
+          callback: handleCredentialResponse
+        });
+        google.accounts.id.renderButton(
+          document.getElementById("buttonDiv"),
+          { theme: "outline", size: "large" }  // customization attributes
+        );
+        google.accounts.id.prompt(); // also display the One Tap dialog
+      }
+  </script>
+    <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/twilight");
     editor.session.setMode("ace/mode/javascript");
