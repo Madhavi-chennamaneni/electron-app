@@ -1,87 +1,100 @@
 <html lang="en">
-  <head>
-    
-    <title>Gradious Code Evaluator</title>
-    <!-- Styles -->
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./assets/main.css">
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Page Content -->
-   </div>
+
+<head>
+
+  <title>Gradious Code Evaluator</title>
+  <!-- Styles -->
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/main.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div id="buttonDiv"></div> 
-          <h4>Exercise 1</h4>
-          <p>Define a function called <code>sum</code> that takes two integers as arguments and returns their sum.</p>
-          <form>
-           <div class="form-group">
-              <div id="editor" class="ace-editor"># Enter your code here.</div>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <div class="logo">
+              <img src="./assets/images/logo.jpg" alt="Gradious logo" id="logo" lazy>
+              <h2>Gradious</h2>
             </div>
-            <button type="submit" class="btn btn-primary">Run Code</button>
-          </form>
-        
-        </div> 
+            <div class="logOut">
+              <a class="nav-link" href="">Logout</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <small class="text-muted">
-          <span>© Copyright 2022 <a href="">Gradious</a></span>
-        </small>
+  </nav><br>
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 ">
+        <h4>Exercise 1</h4>
+        <p>Define a function called <code>sum</code> that takes two integers as arguments and returns their sum.</p>
       </div>
-    </footer>
-    <!-- Scripts -->
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="./main.js"></script>
-    <script src="./renderer.js"></script>
-    <script src="jwt-decode.js"></script>
-    <script src="./assets/js/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script>
-      
-      function handleCredentialResponse(response) {
-        console.log("Encoded JWT ID token: " + response.credential);
-        const responsePayload = jwt_decode(response.credential);
+      <div class="col-lg-5 ">
+        <div class="bg-secondary p-3" id="selection">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+              Change Theme
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Light</a>
+              <a class="dropdown-item" href="#">Dark</a>
+              <a class="dropdown-item" href="#">High Contrast</a>
+            </div>
+          </div>
+          <div>
+            <label for="language">Language</label>
+            <select class="custom-select " id="language">
+              <option value="Java">Java</option>
+              <option value="javascript">javascript</option>
+              <option value="C/C++">C/C++</option>
+            </select>
+          </div>
 
-console.log("ID: " + responsePayload.sub);
-console.log('Full Name: ' + responsePayload.name);
-console.log('Given Name: ' + responsePayload.given_name);
-console.log('Family Name: ' + responsePayload.family_name);
-console.log("Image URL: " + responsePayload.picture);
-console.log("Email: " + responsePayload.email);
-      }
-      window.onload = function () {
-        google.accounts.id.initialize({
-          client_id: "197504797372-j73fmcvfadrrqokndu07vat9eobuh6sj.apps.googleusercontent.com",
-          callback: handleCredentialResponse
-        });
-        google.accounts.id.renderButton(
-          document.getElementById("buttonDiv"),
-          { theme: "outline", size: "large" }  // customization attributes
-        );
-        google.accounts.id.prompt(); // also display the One Tap dialog
-      }
-  </script>
-    <script>
+        </div>
+        <form>
+          <div class="form-group">
+            <div id="editor" class="ace-editor"># Enter your code here.</div>
+          </div>
+          <button type="submit" class="btn btn-primary my-2">Run Code</button>
+        </form>
+      </div>
+      <div class="col-lg-3">
+        <h5>#Output</h5>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <small class="text-muted">
+        <span>© Copyright 2022 <a href="">Gradious</a></span>
+      </small>
+    </div>
+  </footer>
+  <!-- Scripts -->
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./main.js"></script>
+  <script src="./renderer.js"></script>
+  <script src="./assets/js/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/twilight");
     editor.session.setMode("ace/mode/javascript");
-</script>
-  </body>
+  </script>
+</body>
+
 </html>
